@@ -4,13 +4,7 @@ Trabalho de DSW1 com base no documento de requisitos B - Turismo.
 ## A fazer:
 ### Mais urgentes:
 
-Separar páginas do cliente e da agencia
-
-Adicionar etapa para inserção da proposta de compra do cliente
-
-Modificar a forma de cadastro: mudar para fazer cadastro mesmo sem login de admin
-
-Alterar imagens em static
+Adicionar opção do cliente cancelar pacote
 
 ### menos urgentes:
 Adicionar Passos necessários para armazenar e mostrar as fotos
