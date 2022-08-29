@@ -9,13 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.util.StringUtils;
 
@@ -56,7 +51,8 @@ public class PacoteController {
 	}
 
 	@PostMapping("/salvar")
-	public String salvar(@Valid PacoteTuristico pacote, @RequestParam("image") MultipartFile multipartFile, BindingResult result, RedirectAttributes attr) throws IOException {
+	public String salvar(@Valid PacoteTuristico pacote, @RequestParam("image") MultipartFile multipartFile,
+						 BindingResult result, RedirectAttributes attr) throws IOException {
 
     
 		if (result.hasErrors()) {
@@ -99,8 +95,15 @@ public class PacoteController {
 
 	@GetMapping("/excluir/{id}")
 	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
-		pacoteService.excluir(id);
+		pacoteService.cancelar(id);
 		attr.addFlashAttribute("sucess", "pacote.delete.sucess");
+		return "redirect:/pacotes/search";
+	}
+
+	@PutMapping("/cancelar/{id}")
+	public String cancelar(@PathVariable("id") Long id, RedirectAttributes attr){
+		pacoteService.excluir(id);
+		attr.addFlashAttribute("sucess", "pacote.cancel.sucess");
 		return "redirect:/pacotes/search";
 	}
 
