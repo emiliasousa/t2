@@ -15,6 +15,8 @@ public interface IPacoteDAO extends CrudRepository<PacoteTuristico, Long>{
 	PacoteTuristico findById(long id);
 
 	List<PacoteTuristico> findAll();
+
+	List<PacoteTuristico> findAllByAtivo(Boolean ativo);
 	
 	PacoteTuristico save(PacoteTuristico pacote);
 

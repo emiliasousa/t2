@@ -39,6 +39,9 @@ public class PacoteTuristico extends AbstractEntity<Long> {
 	@JoinColumn(name = "agencia_id")
 	private Agencia agencia;
 
+	@Column(nullable = true)
+	private Boolean ativo;
+
 	public String getDestino() {
 		return destino;
 	}
@@ -78,4 +81,8 @@ public class PacoteTuristico extends AbstractEntity<Long> {
     public String getFotos() {
         return fotos;
     }
+
+	public void setAtivo(Boolean ativo) { this.ativo = ativo ;}
+
+	public Boolean getAtivo(){ return ativo; }
 }
