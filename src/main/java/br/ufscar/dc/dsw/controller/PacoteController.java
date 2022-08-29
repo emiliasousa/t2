@@ -95,14 +95,14 @@ public class PacoteController {
 
 	@GetMapping("/excluir/{id}")
 	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
-		pacoteService.cancelar(id);
+		pacoteService.excluir(id);
 		attr.addFlashAttribute("sucess", "pacote.delete.sucess");
 		return "redirect:/pacotes/search";
 	}
 
 	@PutMapping("/cancelar/{id}")
 	public String cancelar(@PathVariable("id") Long id, RedirectAttributes attr){
-		pacoteService.excluir(id);
+		pacoteService.cancelar(id);
 		attr.addFlashAttribute("sucess", "pacote.cancel.sucess");
 		return "redirect:/pacotes/search";
 	}
